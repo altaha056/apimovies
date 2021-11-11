@@ -23,39 +23,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private RecyclerView recyclerView;
     private RequestQueue requestQueue;
     private List<News>newsList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recyclerView=findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         requestQueue=VolleySingleton.getmInstance(this).getRequestQueue();
-
         newsList=new ArrayList<>();
         fetchNews();
-
     }
 
     private void fetchNews() {
         String url = "https://api.themoviedb.org/3/list/1?api_key="+ getString(R.string.api_key);
-
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
                 try {
                     JSONArray items=response.getJSONArray("items");
                     for (int i=0;i<response.getInt("item_count");i++){
                         JSONObject item = items.getJSONObject(i);
-                        String urlToImage= "https://image.tmdb.org/t/p/original"+item.getString("backdrop_path");
+                        String urlToImage= "https://image.tmdb.org/t/p/original"+item.getString("poster_path");
                         String title=item.getString("original_title");
                         String description=item.getString("overview");
                         String publishedAt=item.getString("release_date");
