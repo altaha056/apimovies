@@ -42,8 +42,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         holder.publishedAt.setText(news.getPublishedAt());
         Glide.with(context).load(news.getUrlToImage()).into(holder.imageView);
 //        Picasso.get().load(news.getUrlToImage()).into(holder.imageView);
-
-
     }
 
     @Override
@@ -52,7 +50,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     }
 
     public class NewsHolder extends RecyclerView.ViewHolder {
-
 
         ImageView imageView;
         TextView title,description,author,publishedAt;

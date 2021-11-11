@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray items=response.getJSONArray("items");
                     for (int i=0;i<response.getInt("item_count");i++){
                         JSONObject item = items.getJSONObject(i);
+                        String urlToImage= "https://image.tmdb.org/t/p/original"+item.getString("backdrop_path");
                         String title=item.getString("original_title");
                         String description=item.getString("overview");
-                        String urlToImage= "https://image.tmdb.org/t/p/original"+item.getString("poster_path");
                         String publishedAt=item.getString("release_date");
-                        String author= String.valueOf(item.getInt("vote_average"));
+                        String author= item.getString("media_type");
 
-                        News news = new News(title, description, urlToImage, publishedAt, author);
+                        News news = new News(urlToImage,title, description, publishedAt, author);
                         newsList.add(news);
                     }
 
