@@ -70,29 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                Log.d("TAG", response.toString());
-//                for (int i=0;i<response.length();i++){
-//                    try{
-//                        JSONObject jsonObject = response.getJSONObject(i);
-//                        String title=jsonObject.getString("title");
-//                        String description=jsonObject.getString("description");
-//                        String urlToImage=jsonObject.getString("urlToImage");
-//                        String publishedAt=jsonObject.getString("publishedAt");
-//                        String author=jsonObject.getString("author");
-//
-//                        News news = new News(title, description, urlToImage, publishedAt, author);
-//                        newsList.add(news);
-//                    }catch (JSONException err){
-//                        err.printStackTrace();
-//                    }
-//                    NewsAdapter adapter = new NewsAdapter(MainActivity.this, newsList);
-//                    recyclerView.setAdapter(adapter);
-//                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(MainActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
                 Log.d("TAG", error.toString());
             }
         });
