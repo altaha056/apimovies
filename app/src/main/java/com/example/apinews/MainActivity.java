@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView=findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         requestQueue=VolleySingleton.getmInstance(this).getRequestQueue();
         newsList=new ArrayList<>();

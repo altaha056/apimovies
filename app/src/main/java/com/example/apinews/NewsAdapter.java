@@ -26,15 +26,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         newsList=news;
     }
 
-    @NonNull
-    @Override
-    public NewsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//    @NonNull
+//    @Override
+    public NewsHolder onCreateViewHolder(/*@NonNull*/ ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
         return new NewsHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull NewsHolder holder, int position) {
+//    @Override
+    public void onBindViewHolder(/*@NonNull*/ NewsHolder holder, int position) {
         News news = (News) newsList.get(position);
         holder.title.setText(news.getTitle());
         holder.description.setText(news.getDescription());
@@ -44,7 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 //        Picasso.get().load(news.getUrlToImage()).into(holder.imageView);
     }
 
-    @Override
+//    @Override
     public int getItemCount() {
         return newsList.size();
     }
